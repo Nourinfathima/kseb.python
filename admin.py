@@ -26,8 +26,16 @@ while True:
     choice = int(input("Enter an option: "))
 
     if(choice==1):
-
-        print("add consumer selected")
+        print("Add consumer selected")
+        consumerCode = input("Enter the consumer code: ")
+        consumerName = input("Enter the consumer name: ")
+        consumerPhone = input("Enter the consumer phone: ")
+        consumerAddress = input("Enter the consumer address: ")
+        sql = "INSERT INTO `consumer`(`consumerCode`, `consumerName`, `consumerPhone`, `consumerAddress`) VALUES (%s,%s,%s,%s,%s)"
+        data = (consumerCode,consumerName,consumerPhone,consumerAddress)
+        mycursor.execute(sql,data)
+        mydb.commit()
+        print("Data inserted successfully")
 
     elif(choice==2):
 
