@@ -39,7 +39,13 @@ while True:
 
     elif(choice==2):
 
-        print("search  consumer selected")
+        print("Search Consumer selected")
+        searchOption = input("Enter the Consumer Code/Name/Phone to search: ")
+        sql = "SELECT `consumerCode`, `consumerName`, `consumerPhone`8, `consumerAddress` FROM `consumer` WHERE `consumerCode` ='"+searchOption+"'  OR `consumerName`='"+searchOption+"' OR `consumerPhone` ='"+searchOption+"' "
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
 
     elif(choice==3):
 
